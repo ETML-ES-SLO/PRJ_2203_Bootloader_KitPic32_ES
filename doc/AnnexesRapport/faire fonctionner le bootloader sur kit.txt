@@ -1,0 +1,56 @@
+portage du projet bootloader de Microchip en vue d'une utilisation sur kit ES
+-----------------------------------------------------------------------------
+Utilisé :
+MPLABX 3.40 / XC32 1.42 / Harmony 1.08.01
+-----------------------------------------
+
+
+PARTIE BOOTLOADER :
+*******************
+
+-C:\microchip\harmony\v1_08_01\apps\bootloader\basic
+ dans une copie au même niveau
+
+-ouvrir le projet, propriétés
+ *supprimer les configurations inutiles, ne garder que usart_pic32mx_eth_sk (testé uniquement bootloader via RS232)
+ *régler compilateur 1.42
+ *propriétés du compilateur xc32-gcc -> préprocessing and messages : mettre "make warnings into errors" et "additional warnings"
+
+-ouvrir MHC
+ *régler le BSP SKES
+ *dans DEVCFG3, mettre FETHIO à on
+ *dans DEVCFG0, mettre DEBUG à on
+ *mettre USART_ID_1 (pour correspondre au port série utilisé sur le kit)
+
+A ce stade, le projet doit être compilable et fonctionnel sur cible SKES
+
+Si on programme, on a un bootloader qui dialogue sur port série (115200 Bd)
+Le bootloader se lance en mode firmware update (D10 clignote) :
+ *si aucun programme n'a été trouvé
+ *si on appuie sur le poussoir S7 (2è sous l'écran) au reset
+Sinon, si un programme valable est trouvé, il est lancé automatiquement.
+
+
+PARTIE APPLICATION :
+********************
+L'application à télécharger doit avoir été créée de manière à ne pas écraser le bootloader (ne pas avoir de zone mémoire d'overlap avec celui-ci)
+Dans l'application que l'on aimerait pouvoir télécharger via le bootloader, aller dans MHC :
+ *sous Bootloader Library, cocher "Use bootloader library"
+ *cocher "Build an application linker script"
+ De cette manière, la zone flash utilisée par le bootloader ne sera pas utilisée par l'application.
+On peut reprendre un exemple Microchip ou autre.
+Attention, l'exemple "web_server_nvm_mpfs" modifié pour bootloader (utilise la flash interne presque au max) n'a pas passé à la compilation
+ (plus de place en suffisance pour réserver de la flash au bootloader ?).
+Les exemples "web_server_sdcard_fatfs" et "sdcard_fat_single_disk" adaptés ont fonctionné.
+
+
+DIVERS :
+********
+Disponible chez Microchip :
+ *note d'application 01388B.pdf
+ *application côté PC PIC32UBL.exe qui permet d'uploader un fichier .hex pour mise à jour.
+ Les possibilités sont via UART, USB ou ethernet.
+
+
+
+ 7.12.2016 SCA@etml-es
