@@ -48,7 +48,7 @@
             // cboPortNames
             // 
             this.cboPortNames.FormattingEnabled = true;
-            this.cboPortNames.Location = new System.Drawing.Point(6, 38);
+            this.cboPortNames.Location = new System.Drawing.Point(26, 38);
             this.cboPortNames.Name = "cboPortNames";
             this.cboPortNames.Size = new System.Drawing.Size(121, 21);
             this.cboPortNames.TabIndex = 0;
@@ -58,9 +58,9 @@
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.cboPortNames);
-            this.groupBox1.Location = new System.Drawing.Point(24, 12);
+            this.groupBox1.Location = new System.Drawing.Point(24, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 88);
+            this.groupBox1.Size = new System.Drawing.Size(317, 88);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Réglage communication";
@@ -71,7 +71,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "9600",
             "115200"});
-            this.comboBox1.Location = new System.Drawing.Point(145, 38);
+            this.comboBox1.Location = new System.Drawing.Point(169, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
@@ -102,37 +102,38 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Connection";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(415, 104);
+            this.button4.Location = new System.Drawing.Point(358, 101);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(278, 50);
+            this.button4.Size = new System.Drawing.Size(398, 52);
             this.button4.TabIndex = 5;
             this.button4.Text = "Lancer application";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(415, 231);
+            this.textBox1.Location = new System.Drawing.Point(358, 231);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 164);
+            this.textBox1.Size = new System.Drawing.Size(398, 164);
             this.textBox1.TabIndex = 6;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(415, 183);
+            this.progressBar1.Location = new System.Drawing.Point(358, 175);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(303, 23);
+            this.progressBar1.Size = new System.Drawing.Size(398, 27);
             this.progressBar1.TabIndex = 7;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Location = new System.Drawing.Point(24, 118);
+            this.groupBox2.Location = new System.Drawing.Point(24, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(172, 74);
+            this.groupBox2.Size = new System.Drawing.Size(317, 84);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Choix de l\'application";
@@ -146,7 +147,7 @@
             "Application 3"});
             this.comboBox3.Location = new System.Drawing.Point(26, 31);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.Size = new System.Drawing.Size(264, 21);
             this.comboBox3.TabIndex = 0;
             // 
             // Form1
